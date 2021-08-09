@@ -19,25 +19,29 @@
     <div id="app">
       <h2 class="title has-text-centered dividing-header">UpVote!</h2>
       <div class="section">
-        <article class="media">
+        <article
+          v-for="submission in submissions"
+          :key="submission.id"
+          class="media"
+        >
           <figure class="media-left">
-            <img class="image is-64x64" :src="submissions[0].submissionImage" />
+            <img class="image is-64x64" :src="submission.submissionImage" />
           </figure>
           <div class="media-content">
             <div class="content">
               <p>
                 <strong>
                   <a href="#" class="has-text-info"
-                    >{{ submissions[0].title }}</a
+                    >{{ submission.title }}</a
                   >
-                  <span class="tag is-small">#{{submissions[0].id}}</span>
+                  <span class="tag is-small">#{{submission.id}}</span>
                 </strong>
                 <br />
-                {{submissions[0].description}}
+                {{submission.description}}
                 <br />
                 <small class="is-size-7">
                   Submitted by:
-                  <img class="image is-24x24" :src="submissions[0].avatar" />
+                  <img class="image is-24x24" :src="submission.avatar" />
                 </small>
               </p>
             </div>
