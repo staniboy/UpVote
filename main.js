@@ -27,6 +27,15 @@ const submissionComponent = {
             </span>
           </div>
     </div>`,
+  props: ["submission", "submissions"],
+  methods: {
+    upvote(submissionId) {
+      const submission = this.submissions.find(
+        (submission) => submission.id === submissionId
+      );
+      submission.votes++;
+    },
+  },
 };
 
 const upvoteApp = {
@@ -43,14 +52,6 @@ const upvoteApp = {
       return this.submissions.sort((a, b) => {
         return b.votes - a.votes;
       });
-    },
-  },
-  methods: {
-    upvote(submissionId) {
-      const submission = this.submissions.find(
-        (submission) => submission.id === submissionId
-      );
-      submission.votes++;
     },
   },
 };

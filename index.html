@@ -25,7 +25,10 @@
           class="media"
           :class="{ 'blue-border' : submission.votes >= 20 }"
         >
-          <submission-component></submission-component>
+          <submission-component
+            :submission="submission"
+            :submissions="sortedSubmitions"
+          ></submission-component>
         </article>
       </div>
     </div>
